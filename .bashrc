@@ -19,9 +19,9 @@ alias less='less -M'
 
 #MAMPの設定達
 #export PATH=/Applications/MAMP/bin/php/php5.3.6/bin:$PATH
-alias mmysql = "/Applications/MAMP/Library/bin/mysql"
-alias mphp = "/Applications/MAMP/bin/php/php5.3.6/bin/php"
-alias mpear = "/Applications/MAMP/bin/php/php5.3.6/bin/pear"
+alias mmysql="/Applications/MAMP/Library/bin/mysql"
+alias mphp="/Applications/MAMP/bin/php/php5.3.6/bin/php"
+alias mpear="/Applications/MAMP/bin/php/php5.3.6/bin/pear"
 alias phperror="tail /Applications/MAMP/logs/php_error.log"
 alias apacheerror="tail /Applicatons/MAMP/logs/apache_error.log"
 alias mysqlerror="tail /Applications/MAMP/logs/mysql_error_log.err"
