@@ -1,35 +1,32 @@
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-export PATH=/usr/local/bin:$PATH
+#PATHを通します
 export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
 export MANPATH=/opt/local/man:$MANPATH
-export HISTCONTROL=ignoreboth
-alias ls='ls -Fh'
-alias emacs='emacs -nw'
-alias less='less -M'
+export PATH=/usr/local/bin:$PATH
+
+#EDITORの設定
+export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vi'
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/MacVim "&$@"'
 
-# :export PATH=$PATH:/usr/local/bin:
+#コマンドの設定
 export HISTCONTROL=ignoreboth
 alias ls='ls -GFh'
 alias emacs='emacs -nw'
 alias less='less -M'
-export PS1='\u@\[\033[1;31m\]\H\[\033[0m\][\W]\$ '
+#export PS1='\u@\[\033[1;31m\]\H\[\033[0m\][\W]\$ '
 #export CLICOLOR=1
 
-alias ti='/Library/Application\ Support/Titanium/mobilesdk/osx/1.7.2/iphone/builder.py'
-
-
-export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
-export MANPATH=/opt/local/man:$MANPATH
-
-export PATH=/Applications/MAMP/bin/php/php5.3.6/bin:$PATH
+#MAMPの設定達
+#export PATH=/Applications/MAMP/bin/php/php5.3.6/bin:$PATH
+alias mmysql = "/Applications/MAMP/Library/bin/mysql"
+alias mphp = "/Applications/MAMP/bin/php/php5.3.6/bin/php"
+alias mpear = "/Applications/MAMP/bin/php/php5.3.6/bin/pear"
 alias phperror="tail /Applications/MAMP/logs/php_error.log"
 alias apacheerror="tail /Applicatons/MAMP/logs/apache_error.log"
 alias mysqlerror="tail /Applications/MAMP/logs/mysql_error_log.err"
 
-# 履歴のサイズ。新山の場合はこれで半年ぐらい前のやつまで残る。
+# 履歴のサイズ。
 HISTSIZE=50000
 HISTFILESIZE=50000
 
