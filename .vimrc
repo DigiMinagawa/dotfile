@@ -42,6 +42,8 @@ let php_sql_query=1 "文字列中のSQLをハイライトする
 let php_htmlInStrings=1 "文字列中のHTMLをハイライトする
 let php_noShortTags = 1 "ショートタグ (<?を無効にする→ハイライト除外にする)
 let php_folding = 1 "クラスと関数の折りたたみ(folding)を有効にする
+
+
 "#######################
 " color   
 "#######################
@@ -84,13 +86,14 @@ highlight CursorLine ctermbg=black guibg=black
 " <F2> to paste mode.
 set pastetoggle=<F2>
 
+
 "########################
 "Bundle Install
 "########################
 set rtp+=~/.vim/vundle/    " (2)
 call vundle#rc()               " (3)
-
 Bundle 'xml.vim'
+
 
 "########################
 "neocomplcache
@@ -135,6 +138,7 @@ let g:NeoComplCache_PluginCompletionLength = {
   \ 'keyword_complete' : 2,
   \ 'omni_complete' : 1 
   \ }
+
 
 "########################
 "unite
@@ -185,6 +189,7 @@ if executable('ack-grep')
     let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
     let g:unite_source_grep_recursive_opt = ''
 endif
+
 
 "########################
 "quickrun
