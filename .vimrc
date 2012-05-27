@@ -18,7 +18,11 @@ set ruler "ルーラーの表示
 set showcmd "入力中のコマンドをステータスに表示する
 set showmatch "括弧入力時の対応する括弧を表示
 set laststatus=2 "ステータスラインを常に表示
-
+set nocompatible
+set tabstop=4
+set shiftwidth=4
+set hlsearch
+set backspace=indent,eol,start
 
 "#######################
 " プログラミングヘルプ系
@@ -31,7 +35,13 @@ set ts=4 sw=4 sts=0 "タブは半角4文字分のスペース
 " ファイルを開いた際に、前回終了時の行で起動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-
+"#######################
+"PHP
+"#######################
+let php_sql_query=1 "文字列中のSQLをハイライトする
+let php_htmlInStrings=1 "文字列中のHTMLをハイライトする
+let php_noShortTags = 1 "ショートタグ (<?を無効にする→ハイライト除外にする)
+let php_folding = 1 "クラスと関数の折りたたみ(folding)を有効にする
 "#######################
 " color   
 "#######################
@@ -104,7 +114,10 @@ inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
 inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
 "TABでNextKeyWordに行く
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
+"前回行われた補完をUndo
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+"共通部分を補完
+inoremap <expr><C-l> neocomplcache#complete_common_string()
 "snipetの置き場
 let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 " <C-k> にマッピング
@@ -189,3 +202,4 @@ let g:quickrun_config = {}
 let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
 
 
+Bundle 'https://github.com/beyondwords/vim-twig.git'
