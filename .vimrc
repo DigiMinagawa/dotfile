@@ -6,7 +6,9 @@ nnoremap $ >
 nnoremap ^ <
 nnoremap > $
 nnoremap < ^
-
+"F2でpasteモードに。pasteするときにインデントを無効化。
+" <F2> to paste mode.
+set pastetoggle=<F2>
 
 "#######################
 " 表示系
@@ -35,17 +37,16 @@ set ts=4 sw=4 sts=0 "タブは半角4文字分のスペース
 " ファイルを開いた際に、前回終了時の行で起動
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-"#######################
-"PHP
-"#######################
-let php_sql_query=1 "文字列中のSQLをハイライトする
-let php_htmlInStrings=1 "文字列中のHTMLをハイライトする
-let php_noShortTags = 1 "ショートタグ (<?を無効にする→ハイライト除外にする)
-let php_folding = 1 "クラスと関数の折りたたみ(folding)を有効にする
-"#######################
-" color   
-"#######################
 
+"#######################
+" Vim 補完
+"#######################
+inoremap ( ()<ESC>i
+inoremap <expr> ) ClosePair(')')
+inoremap { {}<ESC>i
+inoremap <expr> } ClosePair('}')
+inoremap [ []<ESC>i
+inoremap <expr> ] ClosePair(']')
 
 "#######################
 "Python
@@ -62,7 +63,7 @@ set ignorecase "検索文字列が小文字の場合は大文字小文字を区�
 set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan "検索時に最後まで行ったら最初に戻る
 set noincsearch "検索文字列入力時に順次対象文字列にヒットさせない
-set hlsearch "検索結果文字列の非ハイライト表示
+set hlsearch "検索文字をハイライト
 
 
 "#######################
@@ -80,9 +81,11 @@ augroup END
 :hi CursorLine gui=underline
 highlight CursorLine ctermbg=black guibg=black
 
-"F2でpasteモードに。pasteするときにインデントを無効化。
-" <F2> to paste mode.
-set pastetoggle=<F2>
+"#######################
+"Color
+"#######################
+set t_Co=256
+colorscheme molokai
 
 "########################
 "Bundle Install
@@ -126,15 +129,6 @@ smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 command! -nargs=* Nes NeoComplCacheEditSnippets
 
-let g:NeoComplCache_PluginCompletionLength = { 
-  \ 'snipMate_complete' : 1,
-  \ 'buffer_complete' : 1,
-  \ 'include_complete' : 2,
-  \ 'syntax_complete' : 2,
-  \ 'filename_complete' : 2,
-  \ 'keyword_complete' : 2,
-  \ 'omni_complete' : 1 
-  \ }
 
 "########################
 "unite
@@ -184,8 +178,7 @@ if executable('ack-grep')
     let g:unite_source_grep_command = 'ack-grep'
     let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
     let g:unite_source_grep_recursive_opt = ''
-endif
-
+endif 
 "########################
 "quickrun
 "########################
@@ -201,5 +194,5 @@ let g:quickrun_config = {}
 " PHPUnit
 let g:quickrun_config['php.unit'] = {'command': 'phpunit'}
 
-
-Bundle 'https://github.com/beyondwords/vim-twig.git'
+Bundle 'molokai'
+Bundle 'colorizer'

@@ -2,3 +2,7 @@
 .vim/bundle
 *~
 bash-completion/
+*.swp
+
+!.vim/colors/molokai.vim
+
