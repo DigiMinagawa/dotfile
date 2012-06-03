@@ -87,13 +87,14 @@ highlight CursorLine ctermbg=black guibg=black
 set t_Co=256
 colorscheme molokai
 
+
 "########################
 "Bundle Install
 "########################
 set rtp+=~/.vim/vundle/    " (2)
 call vundle#rc()               " (3)
-
 Bundle 'xml.vim'
+
 
 "########################
 "neocomplcache
@@ -128,6 +129,7 @@ imap <C-k>     <Plug>(neocomplcache_snippets_expand)
 smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 command! -nargs=* Nes NeoComplCacheEditSnippets
+
 
 
 "########################
@@ -178,7 +180,9 @@ if executable('ack-grep')
     let g:unite_source_grep_command = 'ack-grep'
     let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
     let g:unite_source_grep_recursive_opt = ''
-endif 
+endif
+
+
 "########################
 "quickrun
 "########################

@@ -1,1 +1,1 @@
-/Users/muratasouichirou/dotfiles/.vim
+/Users/s-murata/dotfile/.vim

@@ -33,10 +33,14 @@ HISTFILESIZE=50000
 #bashの補完機能を向上
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
+elif [ -f /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
 fi
 
 #bashプロンプトの色設定とgitのブランチを表示
 if [ -f $BASH_COMPLETION_DIR/git ]; then
+    export PS1='\[\033[01;31m\]\u@\h\[\033[01;36m\] \w$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
+elif [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     export PS1='\[\033[01;31m\]\u@\h\[\033[01;36m\] \w$(__git_ps1) \[\033[01;34m\]\$\[\033[00m\] '
 else
     export PS1='\[\033[01;32m\]\u@\h\[\033[01;36m\] \w \[\033[01;34m\]\$\[\033[00m\] '
