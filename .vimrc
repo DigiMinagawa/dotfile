@@ -84,7 +84,7 @@ highlight CursorLine ctermbg=black guibg=black
 "Color
 "#######################
 set t_Co=256
-colorscheme molokai
+colorscheme twilight
 
 
 "########################
