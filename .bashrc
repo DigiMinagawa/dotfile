@@ -1,13 +1,15 @@
 #PATHを通します
-export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
-export MANPATH=/opt/local/man:$MANPATH
-export PATH=/usr/local/bin:$PATH
+if [ `uname` = "Darwin" ]; then
+    export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
+    export MANPATH=/opt/local/man:$MANPATH
+    export PATH=/usr/local/bin:$PATH
 
-#EDITORの設定
-export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vi'
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/MacVim "&$@"'
+    #EDITORの設定
+    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vi'
+    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/MacVim "&$@"'
+fi
 
 #コマンドの設定
 export HISTCONTROL=ignoreboth
