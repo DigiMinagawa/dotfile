@@ -1,6 +1,4 @@
-ZSH=$HOME/.oh-my-zsh
 plugins=(git)
-source $ZSH/oh-my-zsh.sh
 
 
 
@@ -8,23 +6,26 @@ source $ZSH/oh-my-zsh.sh
 # 文字コードの設定
 export LANG=ja_JP.UTF-8
 
+
 # パスの設定
-PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export MANPATH=/usr/local/share/man:/usr/local/man:/usr/share/man
+ if [ `uname` = "Darwin" ]; then
+    #     #mac用のコード
+    PATH=/usr/local/bin:/usr/local/sbin:$PATH
+    export MANPATH=/usr/local/share/man:/usr/local/man:/usr/share/man
+    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    export PATH=/usr/local/bin:$PATH
+    export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
+    #export MANPATH=/opt/local/man:$MANPATH
+    export HISTCONTROL=ignoreboth
+    alias ls='ls -Fh'
+    alias emacs='emacs -nw'
+    alias less='less -M'
+    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/MacVim "&$@"'
+fi
 
-alias ls='ls -GF'
 
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-export PATH=/usr/local/bin:$PATH
-export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
-#export MANPATH=/opt/local/man:$MANPATH
-export HISTCONTROL=ignoreboth
-alias ls='ls -Fh'
-alias emacs='emacs -nw'
-alias less='less -M'
-alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/MacVim "&$@"'
 
 # :export PATH=$PATH:/usr/local/bin:
 export HISTCONTROL=ignoreboth
@@ -34,7 +35,6 @@ alias less='less -M'
 export PS1='\u@\[\033[1;31m\]\H\[\033[0m\][\W]\$ '
 #export CLICOLOR=1
 
-alias ti='/Library/Application\ Support/Titanium/mobilesdk/osx/1.7.2/iphone/builder.py'
 ## Default shell configuration
 #
 # set prompt
