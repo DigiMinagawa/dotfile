@@ -1,16 +1,19 @@
 # README
 
-##ソース取得
+# neovim 参考
+http://qiita.com/ryo2851/items/4e3c287d5a0005780034
 
-    git clone 
-    git submodule init
-    git submodule update
-    
-##インストール
+```
+brew install neovim/neovim/neovim
+brew install python3
+pip3 install neovim
+```
 
-    sh setup.shを実行
-(シンボリックリンクをHOMEに）
+```
+echo export XDG_CONFIG_HOME=~/.config >> ~/.zshrc
+```
 
-##Vimの設定
+```
+ln -Fiis $(pwd)/config/nvim $HOME/.config/nvim
+```
 
-    vim開いて:BundleInstall

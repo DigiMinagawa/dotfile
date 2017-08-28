@@ -1,1 +1,0 @@
-/Users/s-murata/dotfile/.vim
