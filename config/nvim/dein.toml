@@ -14,6 +14,7 @@ hook_post_update = '''
     let cmd = 'make'
   endif
   let g:dein#plugin.build = cmd
+  '''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -21,3 +22,6 @@ hook_add = 'let g:deoplete#enable_at_startup = 1'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
